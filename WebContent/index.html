@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Editor</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+	function handleRun(){
+		const params = new URLSearchParams();
+		params.append('code', document.getElementById("code").value);
+		axios.post("http://localhost:8080/EasyCode/run",params)
+		.then(function (response){
+			console.log(response);
+			document.getElementById("output").innerHTML = response.data;
+		})
+		.catch(function (error){
+			console.log("Error occurred");
+			console.log(error);
+		})
+		.then(function(){
+			
+		});
+	}
+</script>
+
+</head>
+<body>
+
+	<center>
+		<h1>Editor</h1>
+	</center>
+	Enter code here:
+	<br>
+	<textarea id="code" name="code" rows="25" cols="150"></textarea>
+	<br>
+	<button onclick="handleRun();">Run</button><br>
+	<br> Output:<br>
+
+	<pre id="output"></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<web-app>
+	<servlet>
+		<servlet-name>OutputController</servlet-name>
+		<servlet-class>controller.OutputController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OutputController</servlet-name>
+		<url-pattern>/output</url-pattern>
+	</servlet-mapping>
+</web-app>
